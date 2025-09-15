@@ -9,10 +9,10 @@ import platform
 from collections import OrderedDict
 
 # -------- CONFIG --------
-CSV_FILE    = "email-lists/Sample Professor Outreach List - MSE.csv"
-YOUR_NAME   = "Arseniy"
-YOUR_ROLE   = "Marketing Coordinator"
-SUBJECT     = "SFU Surge StormHacks In-Class Presentation"
+CSV_FILE    = "email-lists/announcement_only.csv"
+YOUR_NAME   = "Josie"
+YOUR_ROLE   = "Marketing Director"
+SUBJECT     = "SFU Surge StormHacks In-Class Presentation Request"
 
 SCHEDULE_EMAILS = True  # False = create Drafts only; True = uses "Send later" to schedule
 SCHEDULE_AT     = "2025-09-15 09:00"          # local clock time to schedule emails for
@@ -20,7 +20,7 @@ SCHEDULE_TZ     = "America/Vancouver"       # python classifies us as america >:
 
 # staggering (only applies when SCHEDULE_EMAILS = True)
 STAGGER_SCHEDULE = True          # True = add delays by batch
-STAGGER_BATCH_SIZE = 2           # every N emails…
+STAGGER_BATCH_SIZE = 10           # every N emails…
 STAGGER_INCREMENT_MINUTES = 5     # …add this many minutes
 
 # ========================= DO NOT TOUCH
@@ -34,12 +34,14 @@ CHROME_DATA = Path(rf"C:\Users\{os.getlogin()}\AppData\Local\Google\Chrome\User 
 PROFILE_NAME = "Default"   # or "Profile 1", etc.
 
 EMAIL_TEMPLATE = """Dear [Professor’s Name],
-My name is [Your Name], I am a [Position] at SFU Surge. We’d love the opportunity to provide a quick 5-minute presentation at the start of [COURSE_PHRASE] about our flagship event StormHacks, our annual 24-hour hackathon that kickstarts students’ careers in tech.
+My name is [Your Name], I am a [Position] at SFU Surge. 
+
+We’d appreciate your support in sharing an announcement to your [COURSE_PHRASE] class about our flagship event StormHacks, our annual 24-hour hackathon that kickstarts students’ careers in tech.
 
 SFU Surge empowers students to connect with the tech industry and gain practical experience through meaningful initiatives. Learn more here: https://sfusurge.com/
 
-If that’s not feasible, we’d appreciate your support in sharing the event via Canvas announcement instead.
 Thank you for your time—we’d be happy to return the favour in the future!
+
 Here is the text you can share with your students through Canvas announcements:
 Title: SFU Surge StormHacks Hackathon, Oct 4-5th
 
@@ -47,7 +49,7 @@ StormHacks is the sandbox for innovators to brew up their boldest ideas, where 2
 
 Hosted by SFU Surge, StormHacks is a 24-hour hackathon with substantial opportunities for students to build their own projects, network with veteran industry professionals, and engage with SFU’s biggest tech community. 
 
-Attending professionals and companies include Major League Hacking, Microsoft, AMD, Safe Software, Clay, Huawei, Vercel, Scalar, and many more.
+Attending professionals and companies include Major League Hacking, Microsoft, AMD, Safe Software, Huawei, Vercel, Scalar, and many more.
 
 Applications are now live! Apply before September 22nd @ 11:59. For any inquiries, please contact @sfusurge on Instagram.
 

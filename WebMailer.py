@@ -36,7 +36,7 @@ PROFILE_NAME = "Default"   # or "Profile 1", etc.
 EMAIL_TEMPLATE = """Dear [Professor’s Name],
 My name is [Your Name], I am a [Position] at SFU Surge. 
 
-We’d appreciate your support in sharing an announcement to your [COURSE_PHRASE] class about our flagship event StormHacks, our annual 24-hour hackathon that kickstarts students’ careers in tech.
+We’d appreciate your support in sharing an announcement to your [COURSE_PHRASE] about our flagship event StormHacks, our annual 24-hour hackathon that kickstarts students’ careers in tech.
 
 SFU Surge empowers students to connect with the tech industry and gain practical experience through meaningful initiatives. Learn more here: https://sfusurge.com/
 

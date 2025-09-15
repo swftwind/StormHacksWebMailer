@@ -3,6 +3,11 @@
 Automate composing personalized emails in **Outlook on the Web** from a **CSV**.  
 The script opens a browser window (Edge by default), fills **To / Subject / Body**, and either **saves a Draft** or **schedules** each message at a time you choose — all **without** Microsoft Graph or admin permissions.
 
+IF YOURE STRUGLLING TO USE SCRIPT (either command line or config issues) JUST PASTE THE CODE INTO CHATGPT AND ASK HOW TO USE IT!
+
+note: the csv data files are the only ones that actually matter, the other files have some outdated fields. the presentation booking is locked and I directly updated the csvs rather than the xlsxs.
+
+updated: I just deleted everything except the final csvs that were used from the github to avoid confusion. the sample remains.
 ---
 
 ## Prerequisites
@@ -49,10 +54,10 @@ PROFILE_NAME = "Default"  # or "Profile 1", etc.
 Your CSV should follow the same shape as **`Sample Professor Outreach List - MSE.csv`**. Minimal example:
 
 ```csv
-Name,Email,Course,Times,Campus,Room
-Krishna Vijayaraghavan,krishna@sfu.ca,MSE 103,Tu 10:30AM - 11:20AM,ALL SURREY,SRYE3016
-,,MSE 352,Mo 2:30PM - 4:20PM,SRY...,SRYC5240
-Erik Kjeang,ekjeang@sfu.ca,MSE 210,Mo 2:30PM - 4:20PM,SRYE2016,
+Name,Email,Course
+Krishna Vijayaraghavan,krishna@sfu.ca,MSE 103
+,,MSE 352
+Erik Kjeang,ekjeang@sfu.ca,MSE 210
 ```
 
 - **Multiple courses per professor:** leave **Name** and **Email** blank on the extra rows — the script automatically attaches those to the professor above and will phrase the message like “your **MSE 103 and MSE 352** classes.”  

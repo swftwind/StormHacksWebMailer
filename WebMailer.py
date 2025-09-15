@@ -3,20 +3,25 @@ import pandas as pd
 from pathlib import Path
 from urllib.parse import quote
 from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo  # Python 3.9+
 import platform
 from collections import OrderedDict
 
 # -------- CONFIG --------
-CSV_FILE    = "Professor Outreach List - MSE.csv"
+CSV_FILE    = "email-lists/Sample Professor Outreach List - MSE.csv"
 YOUR_NAME   = "Arseniy"
 YOUR_ROLE   = "Marketing Coordinator"
 SUBJECT     = "SFU Surge StormHacks In-Class Presentation"
 
-SCHEDULE_EMAILS = False  # False = create Drafts only; True = uses "Send later" to schedule
+SCHEDULE_EMAILS = True  # False = create Drafts only; True = uses "Send later" to schedule
 SCHEDULE_AT     = "2025-09-15 09:00"          # local clock time to schedule emails for
 SCHEDULE_TZ     = "America/Vancouver"       # python classifies us as america >:/
+
+# staggering (only applies when SCHEDULE_EMAILS = True)
+STAGGER_SCHEDULE = True          # True = add delays by batch
+STAGGER_BATCH_SIZE = 2           # every N emails…
+STAGGER_INCREMENT_MINUTES = 5     # …add this many minutes
 
 # ========================= DO NOT TOUCH
 OWA_HOME    = "https://outlook.office.com/mail/"
@@ -50,10 +55,18 @@ Link to our official website: https://www.stormhacks.com/
 """
 
 def prof_salutation(name: str) -> str:
-    if not name: return "Professor"
-    l = name.lower()
-    if l.startswith(("prof", "dr", "doctor")): return name
-    return f"Professor {name.split()[-1]}"
+    """
+    use 'Professor <Full Name>' by default.
+    if the provided name already starts with a title (Prof/Dr/Doctor),
+    keep it as-is. if name is missing, fallback to 'Professor'.
+    """
+    if not name:
+        return "Professor"
+    clean = str(name).strip()
+    lowered = clean.lower()
+    if lowered.startswith(("prof", "dr", "doctor")):
+        return clean  # already titled; preserve exactly
+    return f"Professor {clean}"
 
 def course_phrase(courses):
     if not courses: return "your class"
@@ -280,6 +293,23 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
     page.wait_for_timeout(1500)  # let OWA finish
     return True
 
+def schedule_fields_for_index(index: int) -> tuple[str, str]:
+    """
+    For email #index (0-based), return (date_str, time_str) adjusted for staggering.
+    Uses SCHEDULE_AT/SCHEDULE_TZ and STAGGER_* config.
+    """
+    tz = ZoneInfo(SCHEDULE_TZ)
+    base_dt = datetime.strptime(SCHEDULE_AT, "%Y-%m-%d %H:%M").replace(tzinfo=tz)
+
+    extra_minutes = 0
+    if STAGGER_SCHEDULE:
+        extra_minutes = (index // STAGGER_BATCH_SIZE) * STAGGER_INCREMENT_MINUTES
+
+    adj = base_dt + timedelta(minutes=extra_minutes)
+    # Reuse your existing formatter to produce the strings OWA expects
+    when_str = adj.strftime("%Y-%m-%d %H:%M")
+    return parse_schedule(when_str, SCHEDULE_TZ)
+
 def main():
     recips = load_recipients(CSV_FILE)
     # recips.pop()
@@ -301,6 +331,9 @@ def main():
         page.wait_for_timeout(2500)
 
         made = 0
+        scheduled = False
+        scheduled_when = None
+
         for r in recips:
             email = (r["Email"] or "").strip()
             if not email or email.lower() in ("nan","none"): continue
@@ -366,9 +399,11 @@ def main():
 
                     # === Schedule or Draft ===
                     if SCHEDULE_EMAILS:
-                        date_str, time_str = parse_schedule(SCHEDULE_AT, SCHEDULE_TZ)
-                        ok = schedule_send_owa(page, date_str, time_str)
-                        if not ok:
+                        date_str, time_str = schedule_fields_for_index(made)
+                        scheduled = schedule_send_owa(page, date_str, time_str)
+                        if scheduled:
+                            scheduled_when = f"{date_str} {time_str}"
+                        else:
                             print("Scheduling failed; saving as Draft instead.")
                             save_and_close(page)
                     else:
@@ -384,7 +419,7 @@ def main():
 
             # save_and_close(page)
             made += 1
-            print(f"Draft created for {email}")
+            print(f"{'Scheduled' if scheduled else 'Draft'} for {email}" + (f" at {scheduled_when}" if scheduled_when else ""))
 
         print(f"\nDone. Drafts created: {made}")
         ctx.close()

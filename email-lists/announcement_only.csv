@@ -1,6 +1,4 @@
-Professor Name,Email,Course
-Felix Lo,lofelixl@sfu.ca,CMPT 105W
-,,CMPT 376W
+ï»¿Professor Name,Email,Course
 Harinder Khangura,khangura@sfu.ca,CMPT 105W
 ,,CMPT 120
 Diana Cukierman,diana@sfu.ca,CMPT 120
@@ -9,28 +7,19 @@ Igor Shinkar,ishinkar@sfu.ca,CMPT 125
 ,,CMPT 225
 John Edgar,johnwill@sfu.ca,CMPT 130
 ,,CMPT 225
-Steven Ko,steveyko@sfu.ca,CMPT 201
 Brian Fraser,bfraser@sfu.ca,CMPT 201
 ,,CMPT 213
-Sharan Vaswani,sharan_vaswani@sfu.ca,CMPT 210
-,,CMPT 409
 Lawrence Kim,lawkim@sfu.ca,CMPT 263
 Saba Alimadadi Jani,saba@sfu.ca,CMPT 276
-Jocelyn Minns,,CMPT 276
 Kasra Jamshidi,kjamshid@sfu.ca,CMPT 276
-Greg Baker,ggbaker@sfu.ca,CMPT 295
-Arrvindh Shriraman,ashriram@sfu.ca,CMPT 295
 Kay Wiese,wiese@sfu.ca,CMPT 307
 ,,CMPT 441
 Valentine Kabanets,kabanets@sfu.ca,CMPT 307
 ,,CMPT 308
 Maxwell Libbrecht,maxwl@sfu.ca,CMPT 310
-Morteza Badali,mba200@sfu.ca,CMPT 310
 Ghassan Hamarneh,hamarneh@sfu.ca,CMPT 340
-Zhengjie Miao,zhengjie_miao@sfu.ca,CMPT 354
 Yagiz Aksoy,"yagiz@sfu.ca, xbpeng@sfu.ca",CMPT 361
 Xingdong Yang,xingdong_yang@sfu.ca,CMPT 362
-Yi Ching Chou,,CMPT 365
 Ouldooz Baghban Karimi,ouldooz@sfu.ca,CMPT 371
 Nick (William) Sumner,wsumner@sfu.ca,CMPT 373
 Cristina Eftenaru,cristina_eftenaru@sfu.ca,CMPT 376W
@@ -45,21 +34,12 @@ Hang Ma,hangma@sfu.ca,CMPT 416
 Keval Vora,keval@sfu.ca,CMPT 431
 Ke Wang,wangk@sfu.ca,CMPT 454
 Hao Zhang,haoz@sfu.ca,CMPT 464
-Yuepeng Wang,yuepeng@sfu.ca,CMPT 477
 James Pflanz,jpflanz@sfu.ca,BUS 200
 ,,BUS 233
 ,,BUS 393
-Ilia Bykov,ibykov@sfu.ca,BUS 201
-,,BUS 201
-,,BUS 201
-,,BUS 217W
 Matt Martell,matt_martell@sfu.ca,BUS 202
 ,,BUS 340
 ,,BUS 401
-Joel Rivera,,BUS 203
-Natalia Soloshchenko,natalia_soloshchenko@sfu.ca,BUS 203
-,,BUS 203
-,,BUS 300
 Karen Ruckman,ruckman@sfu.ca,BUS 207
 ,,BUS 307
 Peng Zhang,peng_zhang_7@sfu.ca,BUS 207
@@ -70,10 +50,7 @@ Manish Bhatia,manish_bhatia@sfu.ca,BUS 217W
 Devadrita Nari,devadrita_nari@sfu.ca,BUS 232
 ,,BUS 232
 Cleusa Yamamoto,cyamamot@sfu.ca,BUS 232
-Connie Liu,connie_l@sfu.ca,BUS 237
-,,BUS 237
 Ahmad Bisher,ahmad_bisher@sfu.ca,BUS 237
-Amyn Somani,,BUS 238
 ,,BUS 338
 Anna Lukkarinen,alukkari@sfu.ca,BUS 240
 VJ Terzic,vj_terzic@sfu.ca,BUS 240
@@ -87,7 +64,6 @@ Hwee Cheng Tan,hwee_cheng_tan@sfu.ca,BUS 254
 Chris Zatzick,czatzick@sfu.ca,BUS 272
 ,,BUS 272
 Bahreh Assadi,bahareh_assadi@sfu.ca,BUS 272
-Kent Williams,,BUS 275
 ,,BUS 275
 Neha Shivhare,neha_shivhare@sfu.ca,BUS 303
 Kathleen Burke,kburke@sfu.ca,BUS 303
@@ -107,15 +83,12 @@ Robin Sandhawalia,robin_sandhawalia@sfu.ca,BUS 321
 ,,BUS 321
 Weiming Liu,Weiming_liu@sfu.ca,BUS 330
 ,,BUS 331
-Heba Maghraby,hmaghrab@sfu.ca,BUS 336
-,,BUS 362
 Claudia Gomez Borquez,clg8@sfu.ca,BUS 341
 Lily Lin,lily_lin@sfu.ca,BUS 343
 ,,BUS 343
 Yupin Yang,yupin_yang@sfu.ca,BUS 345
 ,,BUS 446
 Amirhossein Torkzad,amirhossein_torkzad@sfu.ca,BUS 345
-Sep Fardhassemi,,BUS 346
 Ardeshir Zamani,ardeshir_zamani@sfu.ca,BUS 346
 Steve Kates,skates@sfu.ca,BUS 347
 ,,BUS 347
@@ -133,7 +106,6 @@ Jennifer de Visser,jld12@sfu.ca,BUS 361
 Eman Nasr,eman_nasr@sfu.ca,BUS 362
 Anthony Chan,anthonyc@sfu.ca,BUS 371
 ,,BUS 478
-Devadrita Nair,,BUS 373
 Gohram baloch,gohram_baloch@sfu.ca,BUS 373
 Rajiv Kozhikode,rkozhiko@sfu.ca,BUS 374
 Zhanna Lyubykh,zhanna_lyubykh@sfu.ca,BUS 381
@@ -165,7 +137,6 @@ Shervin Jannesar,sjannesa@sfu.ca,ENSC 204
 ,,ENSC 440
 Ljiljana Trajkovic,ljilja@sfu.ca,ENSC 220
 Ash Parameswaran,paramesw@sfu.ca,ENSC 225
-Matthew Stewart,,ENSC 251
 ,,ENSC 351
 Rafegabeham Ahamedsheriff,rafegabeham_ahamedsheriff@sfu.ca,ENSC 252
 Bernhard Rabus,btrabus@sfu.ca,ENSC 316
@@ -184,8 +155,7 @@ Vahid Hosseini,v_hosseini@sfu.ca,SEE 325
 Amir Shabani,amir_shabani@sfu.ca,SEE 333
 Min Xu,min_xu@sfu.ca,SEE 402
 ,,SEE 475
-"Gordon McTaggart-Cowan, 
-Min Xu","gmctagga@sfu.ca, min_xu@sfu.ca",SEE 410W
+Gordon McTaggart-Cowan,gmctagga@sfu.ca,SEE 410W
 Mahda Jahromi,mahda_jahromi@sfu.ca,SEE 466
 Krishna Vijayaraghavan,krishna@sfu.ca,MSE 103
 Mohammad Narimani,mnariman@sfu.ca,MSE 112
@@ -202,12 +172,7 @@ Ramtin Rakhsha,rrakhsha@sfu.ca,MSE 320
 Mohammad Shojayian,mohammad_shojayian@sfu.ca,MSE 321
 Amr Marzouk,amm10@sfu.ca,MSE 491
 Natalie Gagnon,gagnon@sfu.ca,IAT 100
-Andrew Hawryshkewich,andrew_h@sfu.ca,IAT 102
-,,IAT 235
-,,IAT 339
 Niranjan Rajah,nrajah@sfu.ca,IAT 103W
-Halil Erhan,herhan@sfu.ca,IAT 106
-,,IAT 233
 Kenneth Zupan,kfz@sfu.ca,IAT 110
 ,,IAT 336
 Steve DiPaola,sdipaola@sfu.ca,IAT 111
@@ -216,7 +181,6 @@ Brian Fisher,bfisher@sfu.ca,IAT 201
 ,,IAT 351
 Mehdi Nazemi,mna31@sfu.ca,IAT 202
 ,,IAT 432
-Gabriela Aceves-Sepulveda,gacevess@sfu.ca,IAT 206W
 ,,IAT 222
 Michael Filimowicz,michael_f@sfu.ca,IAT 210
 Paul Brokenshire,paulb@sfu.ca,IAT 238
@@ -228,20 +192,15 @@ Bernhard Riecke,ber1@sfu.ca,IAT 312
 Gillian Russell,gillianr@sfu.ca,IAT 333
 ,,IAT 431
 Jordan Eshpeter,jeshpete@sfu.ca,IAT 333
-Rafael Arias González,raa60@sfu.ca,IAT 359
-Özge (Nilay) Yalçin,oyalcin@sfu.ca,IAT 360
+Rafael Arias GonzÃ¡lez,raa60@sfu.ca,IAT 359
+Ã–zge (Nilay) YalÃ§in,oyalcin@sfu.ca,IAT 360
 Justin Gray,tgray@sfu.ca,MATH 100
 Alexdander Rutherford,arruther@sfu.ca,MATH 100
 Tom Archibald,tarchi@sfu.ca,MATH 110
-Nils Bruin,nbruin@sfu.ca,MATH 150
-,,MATH 151
-,,MATH 340
 Sheena Miao Ying Tan,sheena_miao_ying_tan@sfu.ca,MATH 150
 ,,MATH 151
 Vijaykumar Singh,vhsingh@sfu.ca,MATH 150
 ,,MATH 151
-Michael Monagan,mmonagan@sfu.ca,MATH 152
-,,MACM 204
 Ladislav Stacho,lstacho@sfu.ca,MATH 154
 ,,MATH 308
 Justin Chan,jhc34@sfu.ca,MATH 154
@@ -272,10 +231,6 @@ Harsha (Gamage) Perera,gperera@sfu.ca,STAT 100
 ,,STAT 203
 Jiguo Cao,jca76@sfu.ca,STAT 180
 ,,DATA 180
-Wei Lin,wla195@sfu.ca,STAT 201
-,,STAT 201
-,,STAT 203
-,,STAT 271
 David Stenning,dstennin@sfu.ca,STAT 260
 ,,STAT 460
 Jinko Graham,jgraham@sfu.ca,STAT 270
@@ -302,7 +257,7 @@ Frederik Lesage,flesage@sfu.ca,CMNS 313
 Sarah Christina Ganzon,sganzon@sfu.ca,CMNS 110
 ,,CMNS 316
 Andrei Bulatov,abulatov@sfu.ca,MACM 101
-Mohamad Assari,,MACM 101
+Mohamad Assari,maa154@sfu.ca,MACM 101
 Petr Lisonek,plisonek@sfu.ca,MACM 201
 John Stockie,jstockie@sfu.ca,MACM 316
 Cherie Ng,cherien@sfu.ca,RISK 101

@@ -8,15 +8,16 @@ from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
 BASE = "https://www.douglascollege.ca"
 COURSES_URL = f"{BASE}/courses"
 
-# Process order you asked for:
-# CATEGORY_ORDER = [
-#     "Science & Technology",
-#     "Commerce & Business Administration",
-#     "Humanities & Social Sciences",
-# ]
 CATEGORY_ORDER = [
-    "Health Sciences",
+    "Science & Technology",
+    "Commerce & Business Administration",
+    "Humanities & Social Sciences",
 ]
+
+# THIS WAS USED FOR TESTING:
+# CATEGORY_ORDER = [
+#     "Health Sciences",
+# ]
 
 TARGET_GROUPS = set(CATEGORY_ORDER)
 
@@ -243,7 +244,7 @@ def main(headless=False):
             seen.add(key)
             dedup.append({"Prof Name": prof, "Course Number": course})
 
-    with open("inputs.csv", "w", newline="", encoding="utf-8") as f:
+    with open("datasets/inputs.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["Prof Name", "Course Number"])
         w.writeheader()
         w.writerows(dedup)

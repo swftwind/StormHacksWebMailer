@@ -7,8 +7,8 @@ import pandas as pd
 import re
 from pathlib import Path
 
-in_path = Path("datasets/output.csv")
-out_path = Path("datasets/output-clean.csv")
+in_path = Path("../datasets/output.csv")
+out_path = Path("../datasets/output-clean.csv")
 
 # Read CSV with flexible options
 df = pd.read_csv(in_path, dtype=str).fillna("")

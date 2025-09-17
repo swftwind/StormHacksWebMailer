@@ -9,13 +9,14 @@ import platform
 from collections import OrderedDict
 
 # -------- CONFIG --------
-CSV_FILE    = "email-lists/announcement_only.csv"
+# CSV_FILE    = "email-lists/tests-and-samples/Sample Professor Outreach List - MSE.csv"
+CSV_FILE    = "email-lists/bcit/output-clean.csv"
 YOUR_NAME   = "Josie"
 YOUR_ROLE   = "Marketing Director"
-SUBJECT     = "SFU Surge StormHacks In-Class Presentation Request"
+SUBJECT     = "Student Event Opportunity from SFU Surge"
 
 SCHEDULE_EMAILS = True  # False = create Drafts only; True = uses "Send later" to schedule
-SCHEDULE_AT     = "2025-09-15 09:00"          # local clock time to schedule emails for
+SCHEDULE_AT     = "2025-09-17 08:30"          # local clock time to schedule emails for
 SCHEDULE_TZ     = "America/Vancouver"       # python classifies us as america >:/
 
 # staggering (only applies when SCHEDULE_EMAILS = True)
@@ -36,24 +37,32 @@ PROFILE_NAME = "Default"   # or "Profile 1", etc.
 EMAIL_TEMPLATE = """Dear [Professor’s Name],
 My name is [Your Name], I am a [Position] at SFU Surge. 
 
-We’d appreciate your support in sharing an announcement to your [COURSE_PHRASE] about our flagship event StormHacks, our annual 24-hour hackathon that kickstarts students’ careers in tech.
+SFU Surge is a student-led organization at Simon Fraser University that empowers students to connect with the tech industry and gain practical experience through meaningful initiatives. 
 
-SFU Surge empowers students to connect with the tech industry and gain practical experience through meaningful initiatives. Learn more here: https://sfusurge.com/
+We are excited to invite students from [COURSE_PHRASE] at BCIT to participate in our annual flagship event StormHacks, one of Western Canada’s largest 24-hour hackathons. 
 
-Thank you for your time—we’d be happy to return the favour in the future!
+StormHacks provides a unique opportunity for students to kickstart their careers in tech by transforming their ideas into innovative projects. 
+We welcome students from all institutions and backgrounds as we believe innovation comes from a multitude of perspectives and experiences. 
 
-Here is the text you can share with your students through Canvas announcements:
-Title: SFU Surge StormHacks Hackathon, Oct 4-5th
+With the support of our sponsors, including Major League Hacking, Microsoft, Safe Software, and more, students can gain access to mentorship, workshops, and networking opportunities.
+
+
+
+If you’re open to helping us, we have, for your convenience, included a short announcement below that you can share with your students via your preferred communication platform:
+
+*Title: SFU Surge StormHacks Hackathon, Oct 4-5th*
 
 StormHacks is the sandbox for innovators to brew up their boldest ideas, where 24 hours of intensive building transform ambitious concepts into projects that can shape the future. 
 
-Hosted by SFU Surge, StormHacks is a 24-hour hackathon with substantial opportunities for students to build their own projects, network with veteran industry professionals, and engage with SFU’s biggest tech community. 
+Hosted by SFU Surge, StormHacks is a 24-hour event with substantial opportunities for students to build their own projects, network with veteran industry professionals, and engage with a rapidly growing tech community. Admission is free, and food is provided!
 
 Attending professionals and companies include Major League Hacking, Microsoft, AMD, Safe Software, Huawei, Vercel, Scalar, and many more.
 
 Applications are now live! Apply before September 22nd @ 11:59. For any inquiries, please contact @sfusurge on Instagram.
 
-Link to our official website: https://www.stormhacks.com/ 
+Link to our official website: https://www.stormhacks.com/
+
+We welcome any questions, concerns, and inquiries. Please let us know if you’re able to help get this out to as many students as possible. Your support and time are greatly appreciated.. 
 """
 
 def prof_salutation(name: str) -> str:
@@ -143,7 +152,7 @@ def save_and_close(page):
     # close composer
     for sel in ['button[aria-label="Close"]','button[title="Close"]','button[aria-label*="Close"]']:
         try:
-            page.locator(sel).first.click(timeout=1500)
+            page.locator(sel).first.click(timeout=1000)
             break
         except Exception:
             pass
@@ -177,7 +186,7 @@ def parse_schedule(when_str: str, tz_name: str) -> tuple[str, str]:
     time_ampm = dt.strftime(hour_fmt)
     return date_mmddyyyy, time_ampm
 
-def click_first(page, selectors, timeout=2000):
+def click_first(page, selectors, timeout=1000):
     for sel in selectors:
         try:
             page.locator(sel).first.wait_for(timeout=timeout)
@@ -193,7 +202,7 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
     set date/time, confirm. Returns True on success, False on any miss.
     """
 
-    def click_first(selectors, timeout=2000):
+    def click_first(selectors, timeout=1000):
         for sel in selectors:
             try:
                 page.locator(sel).first.wait_for(timeout=timeout)
@@ -211,7 +220,7 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
         'button[aria-haspopup="menu"][aria-label*="Send"]',
         'button[aria-label="Send"] + button',        # Send then chevron
         'button:has(svg[data-icon-name="ChevronDown"])'
-    ], timeout=2000)
+    ], timeout=300)
     if not opened:
         try:
             page.locator('button[aria-label="Send"]').first.focus()
@@ -227,7 +236,7 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
     if not click_first([
         'div[role="menuitem"]:has-text("Schedule send")',
         'button:has-text("Schedule send")',
-    ], timeout=2000):
+    ], timeout=300):
         print("Could not find 'Schedule send' in menu.")
         return False
 
@@ -236,7 +245,7 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
         'div[role="dialog"] button:has-text("Custom time")',
         'button:has-text("Custom time")',
         'div[role="dialog"] a:has-text("Custom time")',
-    ], timeout=2000):
+    ], timeout=300):
         print("Could not find 'Custom time' option.")
         return False
 
@@ -250,7 +259,7 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
     ]:
         try:
             inp = page.locator(sel).first
-            inp.wait_for(timeout=2000)
+            inp.wait_for(timeout=300)
             inp.click()
             inp.fill(when_date_str)   # e.g., 09/15/2025
             inp.press("Enter")
@@ -270,7 +279,7 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
             # if multiple inputs exist, the 2nd is usually time
             candidates = page.locator(sel)
             inp = candidates.nth(1) if candidates.count() > 1 else candidates.first
-            inp.wait_for(timeout=2000)
+            inp.wait_for(timeout=300)
             inp.click()
             inp.fill(when_time_str)   # e.g., 9:00 AM
             inp.press("Enter")
@@ -288,11 +297,11 @@ def schedule_send_owa(page, when_date_str: str, when_time_str: str) -> bool:
         'div[role="dialog"] button:has-text("Send")',
         'div[role="dialog"] button:has-text("Schedule send")',
         'div[role="dialog"] button[aria-label="Send"]',
-    ], timeout=2000):
+    ], timeout=300):
         print("Could not confirm schedule.")
         return False
 
-    page.wait_for_timeout(1500)  # let OWA finish
+    page.wait_for_timeout(300)  # let OWA finish
     return True
 
 def schedule_fields_for_index(index: int) -> tuple[str, str]:
@@ -323,7 +332,7 @@ def main():
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
-        launch_kwargs = dict(channel=channel, headless=False)
+        launch_kwargs = dict(channel=channel, headless=True)
         if user_data_dir: launch_kwargs["user_data_dir"] = os.path.join(user_data_dir, profile)
         ctx = p.chromium.launch_persistent_context(**launch_kwargs)
         page = ctx.new_page()
@@ -351,7 +360,7 @@ def main():
                         'input[aria-label="Subject"]']:
                 try:
                     subj = page.locator(sel).first
-                    subj.wait_for(timeout=2000); subj.click(); subj.fill(SUBJECT)
+                    subj.wait_for(timeout=1000); subj.click(); subj.fill(SUBJECT)
                     break
                 except PWTimeout:
                     continue
@@ -364,7 +373,7 @@ def main():
             ]:
                 try:
                     body = page.locator(sel).first
-                    body.wait_for(timeout=2000)
+                    body.wait_for(timeout=1000)
                     body.click()
 
                     # --- replace this line ---

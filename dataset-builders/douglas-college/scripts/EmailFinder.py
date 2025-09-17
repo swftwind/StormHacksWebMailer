@@ -7,8 +7,8 @@ import asyncio
 from playwright.async_api import async_playwright, TimeoutError as PWTimeout
 
 FACULTY_DIR = "https://www.douglascollege.ca/faculty-directory"
-INPUT_CSV = "inputs.csv"
-OUTPUT_CSV = "output.csv"
+INPUT_CSV = "datasets/inputs.csv"
+OUTPUT_CSV = "datasets/output.csv"
 HEADLESS = False  # set True once it's stable
 SKIP_TBA = False  # set False if you want rows like "(Faculty) TBA" included with blank emails
 

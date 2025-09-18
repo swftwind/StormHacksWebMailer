@@ -10,13 +10,13 @@ from collections import OrderedDict
 
 # -------- CONFIG --------
 # CSV_FILE    = "email-lists/tests-and-samples/Sample Professor Outreach List - MSE.csv"
-CSV_FILE    = "email-lists/bcit/output-clean.csv"
+CSV_FILE    = "email-lists/vcc/output-clean.csv"
 YOUR_NAME   = "Josie"
 YOUR_ROLE   = "Marketing Director"
 SUBJECT     = "Student Event Opportunity from SFU Surge"
 
 SCHEDULE_EMAILS = True  # False = create Drafts only; True = uses "Send later" to schedule
-SCHEDULE_AT     = "2025-09-17 08:30"          # local clock time to schedule emails for
+SCHEDULE_AT     = "2025-09-18 07:00"          # local clock time to schedule emails for
 SCHEDULE_TZ     = "America/Vancouver"       # python classifies us as america >:/
 
 # staggering (only applies when SCHEDULE_EMAILS = True)
@@ -39,7 +39,7 @@ My name is [Your Name], I am a [Position] at SFU Surge.
 
 SFU Surge is a student-led organization at Simon Fraser University that empowers students to connect with the tech industry and gain practical experience through meaningful initiatives. 
 
-We are excited to invite students from [COURSE_PHRASE] at BCIT to participate in our annual flagship event StormHacks, one of Western Canada’s largest 24-hour hackathons. 
+We are excited to invite students from [COURSE_PHRASE] at VCC to participate in our annual flagship event StormHacks, one of Western Canada’s largest 24-hour hackathons. 
 
 StormHacks provides a unique opportunity for students to kickstart their careers in tech by transforming their ideas into innovative projects. 
 We welcome students from all institutions and backgrounds as we believe innovation comes from a multitude of perspectives and experiences. 
